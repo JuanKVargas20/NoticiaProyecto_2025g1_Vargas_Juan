@@ -1,0 +1,29 @@
+/* Rejilla de 2 columnas con tarjetas más anchas */
+.news-grid {
+  display: grid;
+  /* cada columna mínimo 420px, pero puede expandirse; ajusta 420px si quieres más/menos */
+  grid-template-columns: repeat(2, minmax(420px, 1fr));
+  gap: 28px;
+  padding: 28px;
+  box-sizing: border-box;
+  /* permitir que el área ocupe más espacio en pantallas grandes */
+  max-width: 1500px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* asegurar que cada li ocupe el 100% de su celda */
+.news-grid .news-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: en pantallas más pequeñas pasar a 1 columna */
+@media (max-width: 1000px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+}
+

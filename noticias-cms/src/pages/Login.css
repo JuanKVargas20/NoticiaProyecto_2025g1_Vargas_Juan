@@ -1,0 +1,199 @@
+/* ===== Reset y asegurar que el fondo ocupe todo el viewport ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Fondo animado tipo espejo ===== */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh; /* ocupa toda la altura de la pantalla */
+  width: 100vw;       /* ocupa todo el ancho */
+  background: linear-gradient(-45deg, #1d1f33, #151515, #232358, #101010);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  padding: 1rem;
+  overflow: hidden; /* evita scroll horizontal */
+  box-sizing: border-box;
+}
+
+/* ===== Tarjeta vidrio centrada ===== */
+.login-container, .glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 3rem 2.5rem;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  color: #eaeaea;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ===== Títulos ===== */
+.login-title {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* ===== Inputs con iconos ===== */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.input-wrapper .icon {
+  margin-right: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-wrapper input:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.3);
+}
+
+/* ===== Botón estilo neón ===== */
+.btn-glow {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #646cff, #4a50e6, #646cff);
+  background-size: 200% 200%;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(100, 108, 255, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: neonPulse 2s infinite;
+}
+
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(25deg);
+  transition: all 0.5s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 25px rgba(100, 108, 255, 0.7), 0 10px 25px rgba(0, 0, 0, 0.3);
+  background-position: 100% 0%;
+}
+
+.btn-glow:hover::before {
+  top: -30%;
+  left: -30%;
+}
+
+/* ===== Error box ===== */
+.error-box {
+  background: rgba(255, 0, 0, 0.08);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff7b7b;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+}
+
+/* ===== Link registro ===== */
+.register-link {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-link a {
+  color: #646cff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Animaciones ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Pulsación neón ===== */
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(100,108,255,0.4), 0 5px 15px rgba(0,0,0,0.2); }
+  50% { box-shadow: 0 0 30px rgba(100,108,255,0.7), 0 8px 20px rgba(0,0,0,0.3); }
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 480px) {
+  .login-container, .glass-card {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .input-wrapper {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .btn-glow {
+    padding: 0.7rem;
+  }
+}

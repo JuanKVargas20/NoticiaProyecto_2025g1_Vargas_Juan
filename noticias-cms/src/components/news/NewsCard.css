@@ -1,0 +1,198 @@
+.news-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(20,20,20,0.7);
+  border-radius: 8px;
+  padding: 18px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid transparent; /* color por estado aplicado por clases */
+}
+
+/* Imagen superior: ocupa 100% del ancho y mantiene proporción */
+.news-card .news-image,
+.news-card img {
+  width: 100%;
+  height: 180px; /* ajusta altura si quieres tarjetas más altas/bajas */
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Contenido: que fluya dentro de la tarjeta */
+.news-card .news-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Ajustes para el footer/meta */
+.news-card .news-meta {
+  margin-top: auto;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+/* Mantener el borde/estado ya definido previamente */
+.news-card.status-publicado { border-left-color: #1bd57b !important; }
+.news-card.status-desactivado { border-left-color: #ff5c6c !important; }
+.news-card.status-edicion { border-left-color: #f7df5f !important; }
+
+/* estado publicado: línea verde */
+.news-card.state-published {
+  border-left-color: #28c76f; /* verde */
+  box-shadow: 0 6px 20px rgba(40,199,111,0.06);
+}
+
+/* estado desactivado: línea roja */
+.news-card.state-deactivated {
+  border-left-color: #ff4d4f; /* rojo */
+  box-shadow: 0 6px 20px rgba(255,77,79,0.06);
+}
+
+/* estado edición/u otro: línea gris/transparent */
+.news-card.state-editing {
+  border-left-color: rgba(255,255,255,0.03);
+}
+
+/* Título */
+.news-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  transition: color 0.2s ease;
+}
+
+.news-card:hover h2 {
+  color: #70d6ff;
+}
+
+/* Contenido */
+.news-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Fecha */
+.news-card small {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  align-self: flex-end;
+}
+
+/* Animación suave */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .news-card {
+    padding: 1rem;
+  }
+  .news-card h2 {
+    font-size: 1rem;
+  }
+  .news-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Card Image */
+.news-card .card-image-wrap {
+  width: 100%;
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.news-card .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card Body */
+.news-card .card-body { display: block; }
+
+/* Card Subtitle */
+.news-card .card-subtitle {
+  margin: 6px 0;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+/* Card Meta */
+.news-card .card-meta {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* Card Actions */
+.news-card .card-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.action-publish { background: #28a745; color: white; }
+.action-deactivate { background: #dc3545; color: white; }
+.action-edit { background: #007bff; color: white; }
+
+/* estados */
+.news-card.publicado { border-left: 4px solid #28a745; }
+.news-card.desactivado { opacity: 0.8; border-left: 4px solid #dc3545; }
+.news-card.edición, .news-card.edicion { border-left: 4px solid #ffc107; }
+.news-card.terminado { border-left: 4px solid #17a2b8; }
+
+/* borde/linea izquierda por estado */
+.news-card {
+  border-left: 4px solid transparent; /* fallback */
+}
+
+.news-card.status-publicado {
+  border-left-color: #1bd57b; /* verde (publicado) */
+}
+
+.news-card.status-desactivado {
+  border-left-color: #ff5c6c; /* rojo (desactivado) */
+}
+
+.news-card.status-edicion {
+  border-left-color: #f7df5f; /* amarillo (edición) */
+  /* opcional: destacar un poco más */
+  box-shadow: 0 0 0 1px rgba(247,223,95,0.04);
+}
+
+/* colores por estado (más específicos; !important para evitar overrides) */
+.news-card.status-publicado { border-left-color: #1bd57b !important; }
+.news-card.status-desactivado { border-left-color: #ff5c6c !important; }
+.news-card.status-edicion { border-left-color: #f7df5f !important; box-shadow: 0 0 0 1px rgba(247,223,95,0.04); }

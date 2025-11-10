@@ -1,0 +1,113 @@
+.news-form {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--card); /* oscuro y coherente con layout */
+  color: var(--muted);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.02);
+  color: #eaeaea;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-group select {
+  color: #eaeaea;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Forzar opciones legibles en tema oscuro */
+.form-group select option {
+  color: #ffffff;         /* texto blanco */
+  background: #0b0b0b;    /* fondo negro/oscuro */
+}
+
+.error-message {
+  color: #ffdede;
+  padding: 10px;
+  margin-bottom: 1rem;
+  background: rgba(255,0,0,0.08);
+  border-radius: 6px;
+  border: 1px solid rgba(255,0,0,0.18);
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.form-actions button:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+/* campo opcional visual */
+.form-group label:not([for="subtitulo"]):not([for="imageURL"])::after {
+  content: " *";
+  color: #ffb3b3;
+}
+
+/* estilos del boton cancelar */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background: transparent;
+  color: #cfcfcf;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background: rgba(255,255,255,0.02);
+}
